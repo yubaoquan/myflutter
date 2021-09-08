@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../utils/Global.dart';
 
 class NewsListComponent extends StatefulWidget {
   final List list;
@@ -116,7 +117,12 @@ class _NewsListComponentState extends State<NewsListComponent> {
 
           return GestureDetector(
             onTap: () {
-              print(index);
+              print(news);
+              Map<String, dynamic> p = {
+                'url': news['url'],
+              };
+
+              G.router.navigateTo(context, '/news-detail' + G.parseQuery(p));
             },
             child: Container(
               margin: EdgeInsets.only(bottom: 10),

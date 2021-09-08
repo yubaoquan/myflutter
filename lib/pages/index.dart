@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myflutter/providers/CurrentIndexProvider.dart';
 import 'home/home.dart';
 import 'news/list.dart';
 import 'profile/profile.dart';

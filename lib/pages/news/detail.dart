@@ -1,7 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class NewsDetail extends StatefulWidget {
-  const NewsDetail({Key? key}) : super(key: key);
+  final String url;
+
+  const NewsDetail({Key? key, required this.url}) : super(key: key);
 
   @override
   _NewsDetailState createState() => _NewsDetailState();
@@ -9,9 +13,22 @@ class NewsDetail extends StatefulWidget {
 
 class _NewsDetailState extends State<NewsDetail> {
   @override
+  void initState() {
+    super.initState();
+    // Enable hybrid composition.
+    if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('新闻详情'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('新闻详情'),
+        centerTitle: true,
+      ),
+      body: Container(
+        child: WebView(initialUrl: widget.url),
+      ),
     );
   }
 }

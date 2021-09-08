@@ -14,7 +14,7 @@ var indexHandler = Handler(
 /// 新闻详情
 var newsDetailHandler = Handler(
   handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-    return NewsDetail();
+    return NewsDetail(url: params['url']!.first);
   },
 );
 
