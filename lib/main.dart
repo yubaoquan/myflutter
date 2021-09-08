@@ -2,12 +2,19 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'routes/Routes.dart';
 import 'utils/Global.dart';
+import 'package:provider/provider.dart';
+import 'providers/CurrentIndexProvider.dart';
 
 void main() {
   FluroRouter router = FluroRouter();
   Routes.configureRoutes(router);
   G.router = router;
-  runApp(MyApp());
+  runApp(
+    MultiProvider(
+      providers: [ChangeNotifierProvider.value(value: CurrentIndexProvider())],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

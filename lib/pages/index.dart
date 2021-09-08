@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:myflutter/providers/CurrentIndexProvider.dart';
 import 'home/home.dart';
 import 'news/list.dart';
 import 'profile/profile.dart';
 import 'rnstack/rnstack.dart';
+import 'package:provider/provider.dart';
+import '../providers/CurrentIndexProvider.dart';
 
 class Index extends StatefulWidget {
   const Index({Key? key}) : super(key: key);
@@ -12,8 +15,6 @@ class Index extends StatefulWidget {
 }
 
 class _IndexState extends State<Index> {
-  int currentIndex = 0;
-
   final List<BottomNavigationBarItem> bottomNavItems = [
     BottomNavigationBarItem(
       icon: Icon(Icons.home),
@@ -66,20 +67,20 @@ class _IndexState extends State<Index> {
 
   @override
   Widget build(BuildContext context) {
+    int curIndex = context.watch<CurrentIndexProvider>().currentIndex;
+
     return Scaffold(
-      appBar: pages[currentIndex]['appBar'],
+      appBar: pages[curIndex]['appBar'],
       bottomNavigationBar: BottomNavigationBar(
         items: bottomNavItems,
-        currentIndex: currentIndex,
+        currentIndex: curIndex,
         selectedItemColor: Colors.blue[400],
         type: BottomNavigationBarType.fixed,
         onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
+          context.read<CurrentIndexProvider>().changeIndex(index);
         },
       ),
-      body: pages[currentIndex]['page'],
+      body: pages[curIndex]['page'],
     );
   }
 }

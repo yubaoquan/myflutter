@@ -14,3 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## 疑难杂症
+
+web端开发时ajax跨域解决: <https://stackoverflow.com/a/66879350/5131623>

@@ -6,22 +6,21 @@ import '../pages/404/404.dart';
 
 /// 首页
 var indexHandler = Handler(
-  type: HandlerType.function,
-  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return Index();
   },
 );
 
 /// 新闻详情
 var newsDetailHandler = Handler(
-  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return NewsDetail();
   },
 );
 
 /// 404
 var notFoundHandler = Handler(
-  handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
     return NotFound();
   },
 );
