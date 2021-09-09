@@ -5,6 +5,7 @@ import 'utils/Global.dart';
 import 'package:provider/provider.dart';
 import 'providers/CurrentIndexProvider.dart';
 import 'providers/CategoryProvider.dart';
+import 'providers/NewsProvider.dart';
 
 void main() {
   FluroRouter router = FluroRouter();
@@ -15,6 +16,7 @@ void main() {
       providers: [
         ChangeNotifierProvider.value(value: CurrentIndexProvider()),
         ChangeNotifierProvider.value(value: CategoryProvider()),
+        ChangeNotifierProvider.value(value: NewsProvider()),
       ],
       child: MyApp(),
     ),

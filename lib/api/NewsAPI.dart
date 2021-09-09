@@ -18,6 +18,7 @@ class NewsAPI {
         'key': NewsAPI.apiKey,
         'page': page,
         'page_size': pageSize,
+        'type': type,
       },
     );
 
